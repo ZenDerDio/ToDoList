@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.Project.minimaltodo" >
+
+    <uses-permission android:name="ANDROID.PERMISSION.INTERNET"/>
+    <uses-permission android:name="ANDROID.PERMISSION.ACCESS_NETWORK_STATE"/>
+
+    <!--We set theme to DarkTheme because when the app opens it shows
+    a white screen if our theme here is LightTheme. The screen is shown for
+    about 1 second, but it's jarring if users have set Night Mode to true.
+    -->
+    <application
+        android:name="DawidKlosowski.example.ToDoProject.minimaltodo.Analytics.AnalyticsApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/CustomStyle.DarkTheme"
+        >
+        <activity
+            android:name="DawidKlosowski.example.ToDoProject.minimaltodo.Main.MainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="DawidKlosowski.example.ToDoProject.minimaltodo.AddToDo.AddToDoActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName="DawidKlosowski.example.ToDoProject.minimaltodo.Main.MainActivity"
+            />
+
+        <activity android:name="DawidKlosowski.example.ToDoProject.minimaltodo.About.AboutActivity"
+            android:label="@string/app_name"
+            android:parentActivityName="DawidKlosowski.example.ToDoProject.minimaltodo.Main.MainActivity"
+            />
+
+        <activity android:name="DawidKlosowski.example.ToDoProject.minimaltodo.Reminder.ReminderActivity"
+            android:label="@string/app_name"
+            />
+
+        <service android:name="DawidKlosowski.example.ToDoProject.minimaltodo.Utility.TodoNotificationService"
+            />
+        <service android:name="DawidKlosowski.example.ToDoProject.minimaltodo.Utility.DeleteNotificationService"
+            />
+        <activity android:name="DawidKlosowski.example.ToDoProject.minimaltodo.Settings.SettingsActivity"
+            android:parentActivityName="DawidKlosowski.example.ToDoProject.minimaltodo.Main.MainActivity"
+
+            />
+
+    </application>
+
+
+</manifest>
